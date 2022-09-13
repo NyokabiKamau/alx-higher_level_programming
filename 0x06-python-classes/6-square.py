@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""class Square that defines a square by: 
+"""class Square that defines a square by:
 Private instance attribute: size:
 - property def size(self)
 - property setter def size(self, value)
