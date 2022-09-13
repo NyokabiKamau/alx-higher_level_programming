@@ -10,8 +10,8 @@ Public instance method: def my_print(self).
 
 
 class Square:
+    """Initializes the data."""
     def __init__(self, size=0):
-        """Initializes the data."""
         self.__size = size
 
     @property
@@ -32,8 +32,8 @@ class Square:
         """Returns the current square area."""
         return self.__size ** 2
 
+    """Prints to stdout the square with the character #."""
     def my_print(self):
-        """Prints to stdout the square with the character #."""
         if self.__size == 0:
             print()
         else:
