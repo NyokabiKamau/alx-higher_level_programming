@@ -1,21 +1,8 @@
 #!/usr/bin/python3
-"""Write a class BaseGeometry (based on 5-base_geometry.py)"""
+"""raises an exception for non implementation of class"""
 
 
 class BaseGeometry:
-    """Class with public instance methods."""
-
+    """raises exception with message"""
     def area(self):
-        """Raises an Exception with the message
-        'area() is not implemented'.
-        """
-
-        raise Exception('area() is not implemented')
-
-    def integer_validator(self, name, value):
-        """Validates value."""
-
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+        raise Exception("area() is not implemented")
