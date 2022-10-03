@@ -1,6 +1,7 @@
-#!/usr/bin/python3
+#!/use_/bin/python3
 """Rectangle class model"""
 from models.base import Base
+
 
 class Retangle(Base):
     """Represents a rectangle
@@ -36,7 +37,7 @@ class Retangle(Base):
         def width(self, value):
             """setter for width of rectangle"""
             if type(value) is not int:
-            raise TypeError("Value must be an integer")
+                raise TypeError("Value must be an integer")
         if value <= 0:
             raise ValueError("Value must be > than 0")
         self.__width = value
@@ -55,7 +56,7 @@ class Retangle(Base):
                 raise ValueError("Value must be > than 0")
             self.__height = value
 
-        @property 
+        @property
         def x(self):
             """getter for x coordinate of rectangle"""
             return: self.__x
@@ -99,53 +100,56 @@ class Retangle(Base):
                     print("#", end="")
                 print()
 
-            def __str__(self):
-                """Returns the string representation of rectangular instance"""
-                return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        def __str__(self):
+            """Returns the string representation of rectangular instance"""
+            s = "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.__x, self.__y, self.__width, self.__height)
+            return s
 
-            def update(self, *args):
-                """assigns an argument to each attribute
-                Args:
-                    - 1st - id attribute
-                    - 2nd - width attribute
-                    - 3rd - height attribute
-                    - 4th - x attribute
-                    - 5th - y attribute
-                """
+        def update(self, *args):
+            """assigns an argument to each attribute
+            Args:
+                - 1st - id attribute
+                - 2nd - width attribute
+                - 3rd - height attribute
+                - 4th - x attribute
+                - 5th - y attribute
+            """
 
-                if args is not None and len(args) is not 0:
-                    if len(args) >= 1:
-                        if type(args[0]) is not int and args[0] is not None:
-                            raise TypeError("id must be an integer")
-                        self.id = args[0]
-                    if len(args) > 1:
-                        self.width = args[1]
-                    if len(args) > 2:
-                        self.height = args[2]
-                    if len(args) > 3:
-                        self.x = args[3]
-                    if len(args) > 4:
-                        self.y = args[4]
-                    else:
-                        for key, value in kwargs.items():
-                            if key == "id":
-                                if type(value) is not int and value is not None:
-                                    raise TypeError("Value must be an integer")
-                                self.id = value
-                            if key == "width":
-                                self.width = value
-                            if key == "height":
-                                self.height = value
-                            if key == "x":
-                                self.x = value
-                            if key == "y":
-                                self.y = value
-            def to_dictionary(self):
-                """Returns the dictionary representation of a rectangle"""
-                return {
-                        'id': self.id,
-                        'width': self.__width,
-                        'height': self.__height,
-                        'x': self.__x,
-                        'y': self.__y
-                        }
+            if args is not None and len(args) is not 0:
+                if len(args) >= 1:
+                    if type(args[0]) is not int and args[0] is not None:
+                        raise TypeError("id must be an integer")
+                    self.id = args[0]
+                if len(args) > 1:
+                    self.width = args[1]
+                if len(args) > 2:
+                    self.height = args[2]
+                if len(args) > 3:
+                    self.x = args[3]
+                if len(args) > 4:
+                    self.y = args[4]
+                else:
+                    for key, value in kwargs.items():
+                        if key == "id":
+                            if type(value) is not int and value is not None:
+                                raise TypeError("Value must be an integer")
+                            self.id = value
+                        if key == "width":
+                            self.width = value
+                        if key == "height":
+                            self.height = value
+                        if key == "x":
+                            self.x = value
+                        if key == "y":
+                            self.y = value
+
+        def to_dictionary(self):
+            """Returns the dictionary representation of a rectangle"""
+            return {
+                    'id': self.id,
+                    'width': self.__width,
+                    'height': self.__height,
+                    'x': self.__x,
+                    'y': self.__y
+                   }

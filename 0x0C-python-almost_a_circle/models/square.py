@@ -4,6 +4,7 @@
 from model.base import Base
 from model.rectangle import Rectangle
 
+
 class Square:
     """class describing a square"""
 
@@ -21,17 +22,18 @@ class Square:
 
         def __str__(self):
             """returns string representation of a square instance"""
-            return "[Square] ({}) {}/{} - {}".format(self.id, self.__x, self.__y, self.__width)
+            return "[Square] ({}) {}/{} - {}".format(self.id, self.__x,
+                                                     self.__y, self.__width)
 
         @property
         def size(self):
-            """getter of size attribute""" 
+            """getter of size attribute"""
             return self.width
 
         @size.setter
         def size(self, value):
             """setter of size attribute"""
-            if type(value) is not int or is not None:
+            if type(value) is not int:
                 raise TypeError("Width must be an integer")
             if value <= 0:
                 raise ValueError("Width must be > 0")
@@ -69,7 +71,7 @@ class Square:
                             self.size = value
                         if key == "y":
                             self.size = value
-        
+
         def to_dictionary(self):
             """Returns the dictionary representation of a square"""
             return {
