@@ -32,3 +32,43 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+        
+        @classmethod
+        def save_to_file(cls, list_objs):
+            """writes the JSON string rep of list_objs
+            Args:
+            - list_objs is a list of instances who inherits of Base
+            e.g list of Rectangle
+            """
+            if list_objs is None or lists_objs == "[]":
+                jstring = "[]"
+            else:
+                jstring = cls.to_json_string([o.to_dictionary() for o in list_objs])
+            filename = cls.__name__ + ".json"
+            with open(filename, 'w') as jfile:
+                jfile.write(jstring)
+        
+        @staticmethod
+        def from_json_string(json_string):
+            """Returns the list of the JSON string rep of json_string
+            Args:
+                - json_string: string to convert
+            """
+            if json_string is None or json_string == "[]":
+                return []
+            return json.loads(json_string)
+
+        @classmethod
+        def create(clc, **dictionary):
+            """returns an instance with all attributes already set
+            Args:
+                - dictionary: used as **kwargs
+            """
+            if cls.__name__ == 'Rectangle':
+                dummy = cls(1, 1)
+            elif cls.__name__ == 'Square':
+                dummy = cls(1)
+            dummy.update(**dictionary)
+            return dummy
+
+        @class
